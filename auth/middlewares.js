@@ -10,13 +10,13 @@ module.exports = {
 
 // implementation details
 function authenticate(req, res, next) {
-  // 
+  //
   const token = req.get('Authorization');
   // req.body.headers.authorization
 
- console.log('Authenticate  token = ', token);
-// console.log('Authenticate  req.body.headers.authorization = ', req.body.headers.authorization);
-// console.log('Authenticate  req.body = ', req.body);
+  console.log('Authenticate Backend token = ', token);
+  // console.log('Authenticate  req.body.headers.authorization = ', req.body.headers.authorization);
+  // console.log('Authenticate  req.body = ', req.body);
 
   if (token) {
     jwt.verify(token, jwtKey, (err, decoded) => {
@@ -28,7 +28,7 @@ function authenticate(req, res, next) {
     });
   } else {
     return res.status(401).json({
-      error: 'No token provided, must be set on the Authorization Header',
+      error: 'No token provided, must be set on the Authorization Header'
     });
   }
 }
@@ -36,10 +36,10 @@ function authenticate(req, res, next) {
 function generateToken(user) {
   const payload = {
     subject: user.id,
-    username: user.username,
-  }
+    username: user.username
+  };
   const options = {
-    expiresIn: '10000h',
+    expiresIn: '10000h'
   };
 
   return jwt.sign(payload, jwtKey, options);

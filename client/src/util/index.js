@@ -12,13 +12,13 @@ export const searchFunc = (query, notes) => {
 
 export const downloadNotesToCSV = notes => {
   let filename, link, csv, keys, columnDelimiter, lineDelimiter;
-  columnDelimiter = ",";
-  lineDelimiter = "\n";
-  filename = "export.csv";
+  columnDelimiter = ',';
+  lineDelimiter = '\n';
+  filename = 'export.csv';
 
   keys = Object.keys(notes[0]);
 
-  csv = "";
+  csv = '';
   csv += keys.join(columnDelimiter);
   csv += lineDelimiter;
 
@@ -27,7 +27,7 @@ export const downloadNotesToCSV = notes => {
     keys.forEach(function(key) {
       if (ctr > 0) csv += columnDelimiter;
       let temp = note[key].toString();
-      temp = temp.replace(/[,\n]/g, "");
+      temp = temp.replace(/[,\n]/g, '');
       csv += temp;
 
       ctr++;
@@ -37,21 +37,17 @@ export const downloadNotesToCSV = notes => {
 
   if (csv == null) return;
 
-  csv = "data:text/csv;charset=utf-8," + csv;
+  csv = 'data:text/csv;charset=utf-8,' + csv;
 
-  link = document.createElement("a");
-  link.setAttribute("href", encodeURI(csv));
-  link.setAttribute("download", filename);
+  link = document.createElement('a');
+  link.setAttribute('href', encodeURI(csv));
+  link.setAttribute('download', filename);
   link.click();
 };
 
-
 export const authenticate = () => {
-  const token = localStorage.getItem('secret_token');
-
-
-  if (token) 
-      return true;
-   else 
-    return false
-}
+  const userToken = localStorage.getItem('secret_token');
+  console.log('Authenticate in Util  user secret Token = ', userToken);
+  if (userToken) return true;
+  else return false;
+};
