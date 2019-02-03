@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import gv from '../util/globalVariable'
+import gv from '../util/globalVariable';
 
-const serverURL = gv.SERVER_PATH || "http://localhost:9000/";
-
-
-
-
+const serverURL = gv.SERVER_PATH || 'http://localhost:9000/';
 
 const initialUser = {
   username: '',
-  password: '',
+  password: ''
 };
 
 export default class Register extends Component {
@@ -18,72 +14,67 @@ export default class Register extends Component {
     super(props);
     this.state = {
       user: { ...initialUser },
-      message: '',
+      message: ''
     };
   }
 
-  inputHandler = (event) => {
+  inputHandler = event => {
     const { name, value } = event.target;
     this.setState({ user: { ...this.state.user, [name]: value } });
-  }
+  };
 
-  submitHandler = (event) => {
+  submitHandler = event => {
     event.preventDefault();
     console.log('in Register.js  this.state.user = ', this.state.user);
 
-
-    axios.post(`${serverURL}${gv.REGISTER_PATH}`, this.state.user)
-      .then((res) => {
-        console.log('Register.js  res.toekn = ', res.data);
+    axios
+      .post(`${serverURL}${gv.REGISTER_PATH}`, this.state.user)
+      .then(res => {
+        console.log('Register.js  res.toekn = ', res.data.token);
         if (res.status === 200) {
           this.setState({
             message: 'Registration successful',
-            user: { ...initialUser },
+            user: { ...initialUser }
           });
 
-          localStorage.setItem('secret_token', res.data);
+          localStorage.setItem('secret_token', res.data.token);
           this.props.history.push('/');
-
         } else {
           throw new Error();
         }
       })
-      .catch((err) => {
+      .catch(err => {
         this.setState({
           message: 'Registration failed.',
-          user: { ...initialUser },
+          user: { ...initialUser }
         });
       });
-  }
+  };
 
   render() {
     return (
-      <div className = "login">
+      <div className='login'>
         <form onSubmit={this.submitHandler}>
-          <label htmlFor="username">Username</label>
+          <label htmlFor='username'>Username</label>
           <input
-            type="text"
-            id="username"
-            name="username"
+            type='text'
+            id='username'
+            name='username'
             value={this.state.user.username}
             onChange={this.inputHandler}
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor='password'>Password</label>
           <input
-            type="text"
-            id="password"
-            name="password"
+            type='text'
+            id='password'
+            name='password'
             value={this.state.user.password}
             onChange={this.inputHandler}
           />
-          <button type="submit">Submit</button>
+          <button type='submit'>Submit</button>
         </form>
-        { this.state.message
-          ? (<h4>{this.state.message}</h4>)
-          : undefined
-        }
+        {this.state.message ? <h4>{this.state.message}</h4> : undefined}
       </div>
-
     );
   }
 }

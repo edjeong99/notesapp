@@ -19,9 +19,12 @@ function authenticate(req, res, next) {
   // console.log('Authenticate  req.body = ', req.body);
 
   if (token) {
+    console.log('backend authenticate ');
     jwt.verify(token, jwtKey, (err, decoded) => {
-      if (err) return res.status(401).json(err);
-
+      if (err) {
+        console.log('JWT VERIFY FAILED ');
+        return res.status(401).json(err);
+      }
       req.decoded = decoded;
 
       next();

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { fetchNotes } from '../actions';
+// import { fetchNotes } from '../actions';
 
 import gv from '../util/globalVariable';
 
@@ -38,11 +38,11 @@ class Login extends Component {
       .post(`${serverURL}${gv.LOGIN_PATH}`, this.state.user)
       .then(res => {
         if (res.status === 200 && res.data) {
-          console.log('login.js res.data = ', res.data);
+          console.log('login.js res.data.token = ', res.data.token);
 
-          localStorage.setItem('secret_token', res.data);
+          localStorage.setItem('secret_token', res.data.token);
 
-          this.props.handleLogin();
+          this.props.handleLogin(res.data.userId);
 
           this.props.history.push('/');
         } else {

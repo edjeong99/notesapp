@@ -1,4 +1,5 @@
 import {
+  SET_USERID,
   FETCHING_REQUEST,
   FETCHING_SUCCESS,
   FETCHING_FAILURE,
@@ -24,6 +25,9 @@ const initialState = {
 
 export const NoteReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_USERID:
+      return { ...state, userId: action.payload };
+
     case FETCHING_REQUEST:
       return { ...state, fetching: true };
 

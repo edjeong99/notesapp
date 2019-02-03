@@ -14,6 +14,7 @@ import {
   Logout
 } from '../components/';
 import {
+  setUserId,
   fetchNotes,
   addNote,
   deleteNote,
@@ -27,13 +28,14 @@ import {
 class DisplayNotesView extends Component {
   componentDidMount() {
     if (authenticate()) {
-      this.props.fetchNotes();
+      console.log('DiplayNote Viewer  this.props.userId', this.props.userId);
+      this.props.fetchNotes(this.props.userId);
     }
   }
 
   submitAdd = note => {
     console.log('Submit Add Note', { ...note, userId: this.props.isSearched });
-    this.props.addNote({ ...note, userId: this.props.isSearched });
+    this.props.addNote({ ...note, user_id: this.props.userId });
   };
 
   submitEdit = editedNote => {
@@ -48,8 +50,9 @@ class DisplayNotesView extends Component {
     this.props.setSearchBoolean(bool);
   };
 
-  handleLogin = () => {
-    this.props.fetchNotes();
+  handleLogin = id => {
+    this.props.setUserId(id);
+    this.props.fetchNotes(this.props.userId);
   };
 
   render() {
@@ -134,6 +137,6 @@ const mapStateToProps = ({ fetching, notes, isSearched, userId }) => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { fetchNotes, addNote, deleteNote, editNote, setSearchBoolean }
+    { setUserId, fetchNotes, addNote, deleteNote, editNote, setSearchBoolean }
   )(DisplayNotesView)
 );
