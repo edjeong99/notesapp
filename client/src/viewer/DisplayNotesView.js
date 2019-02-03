@@ -67,7 +67,12 @@ class DisplayNotesView extends Component {
           {/* <NavLink to="/logout"> Logout </NavLink> */}
         </nav>
 
-        <Route path='/register' component={Register} />
+        <Route
+          path='/register'
+          render={props => (
+            <Register {...props} handleLogin={this.handleLogin} />
+          )}
+        />
         <Route
           path='/login'
           render={props => <Login {...props} handleLogin={this.handleLogin} />}

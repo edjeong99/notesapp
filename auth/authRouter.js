@@ -32,9 +32,10 @@ function login(req, res, next) {
 
 function register(req, res, next) {
   // implement user registration
+  console.log('BACKEND Register newUser');
   const newUser = { ...req.body };
   newUser.password = bcrypt.hashSync(newUser.password, 3);
-
+  console.log('BACKEND Register newUser');
   db('users')
     .insert(newUser)
     .then(() => login(req, res))

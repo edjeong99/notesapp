@@ -26,24 +26,30 @@ export default class Register extends Component {
   submitHandler = event => {
     event.preventDefault();
     console.log('in Register.js  this.state.user = ', this.state.user);
+    console.log('in Register.js  path = ', `${serverURL}${gv.REGISTER_PATH}`);
 
     axios
       .post(`${serverURL}${gv.REGISTER_PATH}`, this.state.user)
       .then(res => {
-        console.log('Register.js  res.toekn = ', res.data.token);
+        console.log('Register.js  res.userId = ', res.data.userId);
         if (res.status === 200) {
           this.setState({
             message: 'Registration successful',
             user: { ...initialUser }
           });
 
+          // console.log('in Register.js SUCCESS`);
           localStorage.setItem('secret_token', res.data.token);
+          this.props.handleLogin(res.data.userId);
+
           this.props.history.push('/');
         } else {
           throw new Error();
         }
       })
       .catch(err => {
+        console.log('in Register.js  err = ', err);
+
         this.setState({
           message: 'Registration failed.',
           user: { ...initialUser }
