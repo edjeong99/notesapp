@@ -14,7 +14,7 @@ function login(req, res, next) {
     .then(user => {
       if (user && bcrypt.compareSync(cred.password, user.password)) {
         const token = generateToken(user);
-        res.status(200).json({ token, id });
+        res.status(200).json({ token: token, userId: user.id });
       } else res.status(401).json({ message: 'Wrong username/password' });
     })
     .catch(() => res.status(500).json({ message: 'Login Failed!' }));
