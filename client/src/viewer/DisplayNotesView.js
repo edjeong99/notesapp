@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { connect } from "react-redux";
-import { Route, withRouter, NavLink } from "react-router-dom";
-import { authenticate } from "../util";
+import { connect } from 'react-redux';
+import { Route, withRouter, NavLink } from 'react-router-dom';
+import { authenticate } from '../util';
 import {
   DisplayNoteList,
   DisplayNote,
@@ -12,14 +12,14 @@ import {
   Register,
   Login,
   Logout
-} from "../components/";
+} from '../components/';
 import {
   fetchNotes,
   addNote,
   deleteNote,
   editNote,
   setSearchBoolean
-} from "../actions";
+} from '../actions';
 
 // this is view component that manage main display area
 // it has most of logics and also manage all route component
@@ -32,7 +32,8 @@ class DisplayNotesView extends Component {
   }
 
   submitAdd = note => {
-    this.props.addNote(note);
+    console.log('Submit Add Note', { ...note, userId: this.props.isSearched });
+    this.props.addNote({ ...note, userId: this.props.isSearched });
   };
 
   submitEdit = editedNote => {
@@ -47,32 +48,32 @@ class DisplayNotesView extends Component {
     this.props.setSearchBoolean(bool);
   };
 
-  handleLogin = () =>{
+  handleLogin = () => {
     this.props.fetchNotes();
-  }
+  };
 
   render() {
     return (
-      <div className="displayNotesView">
+      <div className='displayNotesView'>
         <nav>
-          <NavLink to="/">Home </NavLink>
-          <NavLink to="/login"> Login </NavLink>
-          <NavLink to="/register"> Register </NavLink>
-          <NavLink to="/logout"> Logout </NavLink>
+          <NavLink to='/'>Home </NavLink>
+          <NavLink to='/login'> Login </NavLink>
+          <NavLink to='/register'> Register </NavLink>
+          <NavLink to='/logout'> Logout </NavLink>
 
           {/* <NavLink to="/logout"> Logout </NavLink> */}
         </nav>
 
-        <Route path="/register" component={Register} />
+        <Route path='/register' component={Register} />
         <Route
-          path="/login"
+          path='/login'
           render={props => <Login {...props} handleLogin={this.handleLogin} />}
         />
-        <Route path="/logout" component={Logout} />
+        <Route path='/logout' component={Logout} />
 
         <Route
           exact
-          path="/"
+          path='/'
           render={props => (
             <DisplayNoteList
               {...props}
@@ -86,7 +87,7 @@ class DisplayNotesView extends Component {
 
         <Route
           exact
-          path="/Notes/:id/edit"
+          path='/Notes/:id/edit'
           render={props => (
             <EditNote
               {...props}
@@ -97,13 +98,13 @@ class DisplayNotesView extends Component {
         />
 
         <Route
-          path="/Notes/:id"
+          path='/Notes/:id'
           render={props => <DisplayNote {...props} notes={this.props.notes} />}
         />
 
         <Route
           exact
-          path="/Notes/:id/delete"
+          path='/Notes/:id/delete'
           render={props => (
             <DeleteNote
               {...props}
@@ -115,7 +116,7 @@ class DisplayNotesView extends Component {
 
         <Route
           exact
-          path="/addNote"
+          path='/addNote'
           render={props => (
             <AddNoteForm {...props} submitAdd={this.submitAdd} />
           )}
@@ -126,8 +127,8 @@ class DisplayNotesView extends Component {
 }
 
 // gets the state and map them to props
-const mapStateToProps = ({ fetching, notes, isSearched }) => {
-  return { notes, fetching, isSearched };
+const mapStateToProps = ({ fetching, notes, isSearched, userId }) => {
+  return { notes, fetching, isSearched, userId };
 };
 
 export default withRouter(

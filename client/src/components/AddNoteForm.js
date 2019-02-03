@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class AddNoteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      textBody: ""
+      title: '',
+      textBody: ''
     };
   }
 
   handleSubmitAdd = () => {
     this.props.submitAdd(this.state);
-    this.props.history.push("/");
+    this.props.history.push('/');
   };
 
   handleInputChange = e => {
@@ -20,24 +20,24 @@ class AddNoteForm extends Component {
 
   render() {
     return (
-      <div className="editNote">
-        <h3>Create New Note: </h3>
+      <div className='editNote'>
+        <h3>Create a New Note: </h3>
         <form onSubmit={this.handleSubmitAdd}>
           <input
             onChange={this.handleInputChange}
-            placeholder="title"
+            placeholder='title'
             value={this.state.title}
-            name="title"
-            size="50"
+            name='title'
+            size='50'
           />
           <textarea
             onChange={this.handleInputChange}
-            placeholder="textBody"
+            placeholder='textBody'
             value={this.state.textBody}
-            name="textBody"
+            name='textBody'
           />
 
-          <button type="submit">Save</button>
+          <button type='submit'>Save</button>
         </form>
       </div>
     );

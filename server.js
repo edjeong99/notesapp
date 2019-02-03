@@ -13,8 +13,7 @@ const { authenticate } = require('./auth/middlewares');
 require('./middleware')(server);
 
 server.use('/auth', authRouter);
-// server.use('/api', authenticate, notesRouter);
-server.use('/api', notesRouter);
+server.use('/api', authenticate, notesRouter);
 
 //* Error Handler
 server.use(errorHandler);
