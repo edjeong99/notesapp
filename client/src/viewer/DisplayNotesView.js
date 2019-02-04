@@ -59,7 +59,9 @@ class DisplayNotesView extends Component {
     return (
       <div className='displayNotesView'>
         <nav>
-          <NavLink to='/'>Home </NavLink>
+          <NavLink to='/' exact>
+            Home{' '}
+          </NavLink>
           <NavLink to='/login'> Login </NavLink>
           <NavLink to='/register'> Register </NavLink>
           <NavLink to='/logout'> Logout </NavLink>
@@ -82,6 +84,7 @@ class DisplayNotesView extends Component {
         <Route
           exact
           path='/'
+          exact
           render={props => (
             <DisplayNoteList
               {...props}
