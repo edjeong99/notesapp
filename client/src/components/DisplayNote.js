@@ -5,7 +5,7 @@ const DisplayNote = props => {
   let note;
   console.log('displayNote init  params.id = ', props.match.params.id);
   if (props.match.params.id) {
-    let noteArr = props.notes.filter(item => item.id == props.match.params.id);
+    let noteArr = props.notes.filter(item => item.id === props.match.params.id);
     console.log('displayNote  note = ', note);
     note = noteArr[0];
     console.log('displayNote  note = ', note);

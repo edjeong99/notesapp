@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 
 const DeleteNote = props => {
-  let note = "";
+  let note = '';
 
-// get the right note that matched ID in the URL
+  // get the right note that matched ID in the URL
   if (props.match.params.id) {
-    note = props.notes.filter(item => item.id == props.match.params.id);
+    note = props.notes.filter(item => item.id === props.match.params.id);
     note = note[0];
   } else {
-    alert("wrong note ID");
-    props.history.push("/");
+    alert('wrong note ID');
+    props.history.push('/');
   }
 
   const handleDelete = () => {
     props.submitdelete(note.id);
-    props.history.push("/");
+    props.history.push('/');
   };
 
   const handleCancel = () => {
@@ -22,13 +22,13 @@ const DeleteNote = props => {
   };
 
   return (
-    <div className="deleteNote">
-      <div className="deleteNoteWindow">
+    <div className='deleteNote'>
+      <div className='deleteNoteWindow'>
         <p>Are you sure you want to delete this?</p>
-        <div className="deleteButton">
-          <button className="delete" onClick={handleDelete}>
-            {" "}
-            Delete{" "}
+        <div className='deleteButton'>
+          <button className='delete' onClick={handleDelete}>
+            {' '}
+            Delete{' '}
           </button>
           <button onClick={handleCancel}> No </button>
         </div>

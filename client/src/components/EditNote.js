@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react';
 
 // Presentational component for displaying edit note
 class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      textBody: "",
-      id: ""
+      title: '',
+      textBody: '',
+      id: ''
     };
     this.note = {};
 
@@ -19,12 +18,12 @@ class EditNote extends Component {
     if (this.props.match.params.id) {
       // get the note with corresponding id from URL
       this.note = this.props.notes.filter(
-        item => item.id == this.props.match.params.id
+        item => item.id === this.props.match.params.id
       );
       this.setState({ ...this.note[0] }); // set state variables to this.note.  ie title=this.note.title
     } else {
-      alert("wrong note ID");
-      this.props.history.push("/");
+      alert('wrong note ID');
+      this.props.history.push('/');
     }
   }
 
@@ -39,24 +38,24 @@ class EditNote extends Component {
 
   render() {
     return (
-      <div className="editNote">
+      <div className='editNote'>
         <h3>Edit Notes : </h3>
         <form onSubmit={this.submitEdit}>
           <input
             onChange={this.handleInputChange}
-            placeholder="title"
+            placeholder='title'
             value={this.state.title}
-            name="title"
-            size="50"
+            name='title'
+            size='50'
           />
           <textarea
             onChange={this.handleInputChange}
-            placeholder="textBody"
+            placeholder='textBody'
             value={this.state.textBody}
-            name="textBody"
+            name='textBody'
           />
 
-          <button type="submit">Update</button>
+          <button type='submit'>Update</button>
         </form>
       </div>
     );
