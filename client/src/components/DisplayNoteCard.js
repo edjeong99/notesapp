@@ -64,7 +64,9 @@ const DisplayNoteCard = props => {
 
       <Button
         style={{
-          width: '150px',
+          width: '100px',
+          paddingTop: '5px',
+          paddingBottom: '5px',
           alignSelf: 'center'
         }}
         onClick={handleCopy}

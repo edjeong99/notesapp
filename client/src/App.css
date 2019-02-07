@@ -278,16 +278,6 @@ body {
   cursor: pointer;
 }
 
-.displayNoteCard button {
-  margin: 0 auto;
-  width: 60%;
-  background: #525ddc;
-  margin: 5px;
-  padding: 7px 0;
-  color: white;
-
-  font-size: 14px;
-}
 button {
   width: 90%;
   background: #24b8bd;
