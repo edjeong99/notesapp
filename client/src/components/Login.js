@@ -40,7 +40,7 @@ class Login extends Component {
       .post(`${serverURL}${gv.LOGIN_PATH}`, this.state.user)
       .then(res => {
         if (res.status === 200 && res.data) {
-          console.log('login.js res.data.token = ', res.data.token);
+          // console.log('login.js res.data.token = ', res.data.token);
 
           localStorage.setItem('secret_token', res.data.token);
 

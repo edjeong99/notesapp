@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import SearchNote from './SearchNote';
 import { searchFunc, authenticate } from '../util';
 import { serverSearchFunc } from '../actions';
+// below 3 codes should be removed once things work
+// there are used to get notes without login
+import { fetchNotes } from '../actions';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 // DisplayNoteList component is presentational component that manage display of list of note
 class DisplayNoteList extends Component {
@@ -16,11 +21,18 @@ class DisplayNoteList extends Component {
   }
 
   componentDidMount() {
-    if (authenticate()) {
-      this.setState({
-        displayedNotes: this.props.notes
-      });
-    } else this.props.history.push('/login');
+    // if (authenticate()) {
+    //   this.setState({
+    //     displayedNotes: this.props.notes
+    //   });
+    // } else this.props.history.push('/login');
+
+    // for now just set user as user ID 2
+    this.props.handleLogin(2);
+    this.props.fetchNotes(2);
+    this.setState({
+      displayedNotes: this.props.notes
+    });
   }
   // to see if "View Your Notes" is clicked.  I use the props.isSearched boolean.
   // Toggle isSearched in redux state to decide whether all notes should be displayed, or
@@ -33,9 +45,9 @@ class DisplayNoteList extends Component {
       });
     }
 
-    if (!authenticate()) {
-      this.props.history.push('/login');
-    }
+    // if (!authenticate()) {
+    //   this.props.history.push('/login');
+    // }
   }
 
   handleInputChange = e => {
@@ -46,7 +58,19 @@ class DisplayNoteList extends Component {
     this.props.handleSearchBoolean(true);
   };
 
+  resetNotes = () => {
+    setTimeout(
+      this.setState({
+        displayedNotes: this.props.notes
+      }),
+      1500
+    );
+  };
+
   render() {
+    // below code is temporary.  remove when publishing
+    if (this.state.displayedNotes === []) this.resetNotes();
+
     if (this.state.isSearched) {
       // using server side search func
       // below has bug.  displayedNotes won't get updated in time so older version of
@@ -91,4 +115,12 @@ class DisplayNoteList extends Component {
   }
 }
 
-export default DisplayNoteList;
+const mapStateToProps = ({}) => {
+  return {};
+};
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { fetchNotes }
+  )(DisplayNoteList)
+);

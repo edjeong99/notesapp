@@ -84,7 +84,6 @@ class DisplayNotesView extends Component {
         <Route
           exact
           path='/'
-          exact
           render={props => (
             <DisplayNoteList
               {...props}
@@ -92,6 +91,7 @@ class DisplayNotesView extends Component {
               isSearched={this.props.isSearched}
               handleSearchBoolean={this.handleSearchBoolean}
               submitAdd={this.submitAdd}
+              handleLogin={this.handleLogin}
             />
           )}
         />
