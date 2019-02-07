@@ -42,7 +42,8 @@ const DisplayNoteCard = props => {
               as='h4'
               style={{
                 height: '20px',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                borderBottom: '1px solid black'
                 // fontSize: '1.1rem'
               }}
             >
