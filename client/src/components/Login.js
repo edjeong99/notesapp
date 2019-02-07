@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-
+import { Form, Button, Header, Icon, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 // import { fetchNotes } from '../actions';
-
+import ourColors from '../ColorScheme.js';
 import gv from '../util/globalVariable';
 
 const serverURL = gv.SERVER_PATH || 'http://localhost:9000/';
@@ -21,7 +22,8 @@ class Login extends Component {
     super(props);
     this.state = {
       user: { ...initialUser },
-      message: ''
+      message: '',
+      error: null
     };
   }
 
@@ -51,15 +53,23 @@ class Login extends Component {
       })
       .catch(err => {
         this.setState({
-          message: 'Authentication failed.'
+          message: 'Authentication failed.',
+          error: err
         });
       });
   };
 
+  goToRegisterPage = () => {
+    this.props.history.push('/register');
+  };
   render() {
+    const isInvalid =
+      this.state.user.password === '' || this.state.user.username === '';
+    console.log('inInvalid = ', isInvalid);
     return (
       <div className='login'>
-        {this.state.message ? <h4>{this.state.message}</h4> : undefined}
+        <h3> Log In </h3>
+        {/* {this.state.message ? <h4>{this.state.message}</h4> : undefined}
         <form onSubmit={this.submitHandler}>
           <label htmlFor='username'>Username</label>
           <input
@@ -78,7 +88,56 @@ class Login extends Component {
             onChange={this.inputHandler}
           />
           <button type='submit'>Submit</button>
-        </form>
+        </form> */}
+
+        <Form onSubmit={this.submitHandler}>
+          <Form.Field>
+            <input
+              name='username'
+              value={this.state.user.username}
+              onChange={this.inputHandler}
+              type='text'
+              placeholder='username'
+              style={{ marginBottom: '10px' }}
+            />
+          </Form.Field>
+          <Form.Field>
+            <input
+              name='password'
+              value={this.state.user.password}
+              onChange={this.inputHandler}
+              type='password'
+              placeholder='Password'
+            />
+          </Form.Field>
+
+          <Button
+            disabled={isInvalid}
+            type='submit'
+            style={
+              isInvalid
+                ? {
+                    background: ourColors.inactiveButtonColor,
+                    color: 'white'
+                  }
+                : { background: ourColors.buttonColor, color: 'white' }
+            }
+          >
+            Log In
+          </Button>
+          <p style={{ textAlign: 'center' }}>
+            Don't have an account? <Link to='/register'>Sign Up</Link>
+          </p>
+
+          {this.state.error && (
+            <p>
+              {' '}
+              Sorry, the credentials you entered do not match. Please try again.
+            </p>
+          )}
+        </Form>
+
+        {/* {resetPasswordComponent} */}
       </div>
     );
   }
