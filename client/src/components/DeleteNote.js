@@ -13,7 +13,7 @@ const DeleteNote = props => {
   }
 
   const handleDelete = () => {
-    props.submitdelete(note.id);
+    props.submitDelete(note.id);
     props.history.push('/');
   };
 

@@ -25,6 +25,10 @@ const DisplayNoteCard = props => {
     props.submitAdd(copiedNote);
   };
 
+  const handleDelete = () => {
+    props.submitDelete(props.note.id);
+  };
+
   return (
     <CardDiv>
       <Link to={`/Notes/${props.note.id}`} style={{ textDecoration: 'none' }}>
@@ -70,19 +74,10 @@ const DisplayNoteCard = props => {
           </Card.Content>
         </Card>
       </Link>
-      <Icon circular name='copy' onClick={handleCopy} />
-
-      {/* <Button
-        style={{
-          width: '100px',
-          paddingTop: '5px',
-          paddingBottom: '5px',
-          alignSelf: 'center'
-        }}
-        onClick={handleCopy}
-      >
-        Copy
-      </Button> */}
+      <div className='iconGroup'>
+        <Icon size='big' color='teal' name='copy' onClick={handleCopy} />
+        <Icon size='big' color='red' name='delete' onClick={handleDelete} />
+      </div>
     </CardDiv>
   );
 };

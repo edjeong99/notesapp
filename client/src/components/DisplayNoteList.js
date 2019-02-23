@@ -109,6 +109,7 @@ class DisplayNoteList extends Component {
               key={note.id}
               note={note}
               submitAdd={this.props.submitAdd}
+              submitDelete={this.props.submitDelete}
             />
           ))}
         </div>

@@ -42,7 +42,7 @@ class DisplayNotesView extends Component {
     this.props.editNote(editedNote);
   };
 
-  submitdelete = deleteId => {
+  submitDelete = deleteId => {
     this.props.deleteNote(deleteId);
   };
 
@@ -91,6 +91,7 @@ class DisplayNotesView extends Component {
               isSearched={this.props.isSearched}
               handleSearchBoolean={this.handleSearchBoolean}
               submitAdd={this.submitAdd}
+              submitDelete={this.submitDelete}
               handleLogin={this.handleLogin}
             />
           )}
@@ -120,7 +121,7 @@ class DisplayNotesView extends Component {
             <DeleteNote
               {...props}
               notes={this.props.notes}
-              submitdelete={this.submitdelete}
+              submitDelete={this.submitDelete}
             />
           )}
         />
