@@ -1,29 +1,33 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react';
+import { Input } from 'semantic-ui-react';
 
 // SearchNote is presentational component that display search box
 class SearchNote extends Component {
-  // constructor(props) {
-    // super(props);
-    // this.state = {
-    //   query: ""
-    // };
-    // this.SearchedResultNotes = [];
-  // }
-
   render() {
     return (
-      <form className="searchNote">
-        <input
-          type="input"
+      <div>
+        <Input
+          size='huge'
+          icon='search'
+          iconPosition='left'
           onChange={this.props.handleInputChange}
           onSubmit={this.props.onSubmit}
           value={this.props.query}
-          name="query"
-          placeholder="Search notes..."
-          size="30"
+          name='query'
+          placeholder='Search notes...'
         />
-      </form>
+      </div>
+      // <form className="searchNote">
+      //   <input
+      //     type="input"
+      //     onChange={this.props.handleInputChange}
+      //     onSubmit={this.props.onSubmit}
+      //     value={this.props.query}
+      //     name="query"
+      //     placeholder="Search notes..."
+      //     size="30"
+      //   />
+      // </form>
     );
   }
 }

@@ -21,7 +21,9 @@ To install the application in a local dev environment, run `yarn install` in the
 
 #### Front End
 
-**Solution:** React, React Router, Redux (planed to add Styled Components, Semantic UI, Firebase Oauth)
+**Solution:** React, React Router, Redux
+In the process of adding Styled Components and Semantic UI
+Plan to add Firebase Oauth, Stripe, etc
 
 - Organizes state and manages front-end part of the project, reduces need for page reloads during navigation
 - Routing links

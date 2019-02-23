@@ -94,13 +94,15 @@ class DisplayNoteList extends Component {
 
     return (
       <div className='NoteListContainer'>
-        <SearchNote
-          notes={this.state.notes}
-          query={this.state.query}
-          handleInputChange={this.handleInputChange}
-          onSubmit={this.handleOnSubmit}
-        />
-        <h3> Your Notes : </h3>
+        <div className='NoteListTop'>
+          <h3> Your Notes : </h3>
+          <SearchNote
+            notes={this.state.notes}
+            query={this.state.query}
+            handleInputChange={this.handleInputChange}
+            onSubmit={this.handleOnSubmit}
+          />
+        </div>
         <div className='noteList'>
           {this.displayedNotes.map(note => (
             <DisplayNoteCard
