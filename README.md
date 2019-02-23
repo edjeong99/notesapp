@@ -1,8 +1,8 @@
 This is a note taking app.
-I made it as a personal project to improve my front-end and back-end development skills.
-Front-end and Back-end each took 4 days to develop as part of Lambda School's curriculum. I then depolyed both Front-end and Back-end.
+It is a personal project to improve my front-end and back-end development skills.
+Front-end and Back-end each took 4 days to develop as part of Lambda School's curriculum. I then deployed both Front-end and Back-end.
 Due to time constrains only basic functionalities are implemented for now.
-I plan to improve CSS and add more functionalities.
+Currently, I am improving CSS and plan to add more functionalities.
 
 ### to test site
 
