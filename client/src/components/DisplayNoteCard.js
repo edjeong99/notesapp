@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Card, Responsive } from 'semantic-ui-react';
+import { Icon, Card, Button } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 const CardDiv = styled.div`
-  width: 200px;
+  width: 170px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin: 10px;
+  border-radius: 15%;
+  /* background: #e6e9ed; */
 `;
 
 const DisplayNoteCard = props => {
@@ -31,27 +34,32 @@ const DisplayNoteCard = props => {
         <Card
           style={{
             // width: '200px',
-            // height: '200px',
+            height: '140px',
             margin: '10px',
             overflow: 'hidden',
-            fontFamily: 'Roboto'
+            fontFamily: 'Roboto',
+            color: 'black',
+            width: '150px',
+            backgroundColor: '#e6e9ed',
+            border: 'none'
           }}
         >
-          <Card.Content style={{ paddingTop: '4px' }}>
+          <Card.Content style={{ paddingTop: '4px', width: '150px' }}>
             <Card.Header
               as='h4'
               style={{
-                height: '20px',
+                height: '40px',
                 overflow: 'hidden',
-                borderBottom: '1px solid black'
-                // fontSize: '1.1rem'
+                padding: '10px ',
+                borderBottom: '1px solid black',
+                fontSize: '1.6rem'
               }}
             >
               {props.note.title}
             </Card.Header>
             <p
               style={{
-                height: '40px',
+                height: '60px',
                 overflow: 'hidden'
                 // fontSize: '1.1rem'
               }}
@@ -62,8 +70,9 @@ const DisplayNoteCard = props => {
           </Card.Content>
         </Card>
       </Link>
+      <Icon circular name='copy' onClick={handleCopy} />
 
-      <Button
+      {/* <Button
         style={{
           width: '100px',
           paddingTop: '5px',
@@ -73,7 +82,7 @@ const DisplayNoteCard = props => {
         onClick={handleCopy}
       >
         Copy
-      </Button>
+      </Button> */}
     </CardDiv>
   );
 };

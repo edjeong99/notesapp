@@ -95,7 +95,7 @@ class DisplayNoteList extends Component {
     return (
       <div className='NoteListContainer'>
         <div className='NoteListTop'>
-          <h3> Your Notes : </h3>
+          <h3> Notes : </h3>
           <SearchNote
             notes={this.state.notes}
             query={this.state.query}

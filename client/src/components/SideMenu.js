@@ -12,16 +12,16 @@ const SideMenu = props => {
     <div className='sideMenu'>
       <h2>
         {' '}
-        Lambda
+        Ed's
         <br /> Notes
       </h2>
       <Link to='/'>
         <button onClick={() => props.setSearchBoolean(false)}>
-          View Your Notes
+          View Notes
         </button>
       </Link>
       <Link to='/addNote'>
-        <button> Create a New Note</button>
+        <button> Add a Note</button>
       </Link>
 
       <DownloadCSV

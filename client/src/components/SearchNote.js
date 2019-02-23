@@ -7,7 +7,7 @@ class SearchNote extends Component {
     return (
       <div>
         <Input
-          size='huge'
+          size='large'
           icon='search'
           iconPosition='left'
           onChange={this.props.handleInputChange}

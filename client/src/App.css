@@ -228,9 +228,11 @@ body {
 
 .sideMenu {
   width: 20%;
+  min-width: 200px;
   background: #d3d2d3;
-  text-align: left;
+  text-align: center;
   padding: 30px 10px;
+  font-size: 1.6rem;
 }
 .displayNotesView {
   margin: 30px 20px;
@@ -264,7 +266,7 @@ body {
   height: 200px;
   border: 1px solid black;
   overflow: hidden;
-  background: white;
+  background: #ffce54;
   padding: 10px;
   margin: 10px;
 }

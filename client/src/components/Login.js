@@ -27,6 +27,34 @@ class Login extends Component {
     };
   }
 
+  // this componentDidMount is to make testing easier
+  // should be deleted for production
+  componentDidMount() {
+    axios
+      .post(`${serverURL}${gv.LOGIN_PATH}`, {
+        username: 'q',
+        password: '1'
+      })
+      .then(res => {
+        if (res.status === 200 && res.data) {
+          // console.log('login.js res.data.token = ', res.data.token);
+
+          localStorage.setItem('secret_token', res.data.token);
+
+          this.props.handleLogin(res.data.userId);
+
+          this.props.history.push('/');
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(err => {
+        this.setState({
+          message: 'Authentication failed.',
+          error: err
+        });
+      });
+  }
   inputHandler = event => {
     const { name, value } = event.target;
     this.setState({ user: { ...this.state.user, [name]: value } });
