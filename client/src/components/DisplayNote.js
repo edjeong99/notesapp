@@ -4,9 +4,12 @@ import { NavLink } from 'react-router-dom';
 const DisplayNote = props => {
   let note;
   console.log('displayNote init  params.id = ', props.match.params.id);
+  console.log('displayNote notes = ', props.notes);
   if (props.match.params.id) {
-    let noteArr = props.notes.filter(item => item.id === props.match.params.id);
-    console.log('displayNote  note = ', note);
+    let noteArr = props.notes.filter(
+      item => Number(item.id) === Number(props.match.params.id)
+    );
+    console.log('displayNote  noteArr = ', noteArr);
     note = noteArr[0];
     console.log('displayNote  note = ', note);
   } else {
