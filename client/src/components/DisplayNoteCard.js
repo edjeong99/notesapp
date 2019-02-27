@@ -75,8 +75,14 @@ const DisplayNoteCard = props => {
         </Card>
       </Link>
       <div className='iconGroup'>
-        <Icon size='big' color='teal' name='copy' onClick={handleCopy} />
-        <Icon size='big' color='red' name='delete' onClick={handleDelete} />
+        <Icon link size='big' color='teal' name='copy' onClick={handleCopy} />
+        <Icon
+          link
+          size='big'
+          color='red'
+          name='delete'
+          onClick={handleDelete}
+        />
       </div>
     </CardDiv>
   );

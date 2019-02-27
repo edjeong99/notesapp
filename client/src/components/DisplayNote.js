@@ -1,26 +1,66 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Icon, Card, Button } from 'semantic-ui-react';
 
 const DisplayNote = props => {
   let note;
-  console.log('displayNote init  params.id = ', props.match.params.id);
-  console.log('displayNote notes = ', props.notes);
   if (props.match.params.id) {
     let noteArr = props.notes.filter(
       item => Number(item.id) === Number(props.match.params.id)
     );
-    console.log('displayNote  noteArr = ', noteArr);
+    // console.log('displayNote  noteArr = ', noteArr);
     note = noteArr[0];
-    console.log('displayNote  note = ', note);
+    // console.log('displayNote  note = ', note);
   } else {
     alert('wrong note ID');
     props.history.push('/');
   }
 
+  const handleCopy = () => {
+    const copiedNote = {
+      title: note.title,
+      textBody: note.textBody
+    };
+
+    props.submitAdd(copiedNote);
+  };
+
+  const handleEdit = () => {
+    props.history.push(`/Notes/${props.match.params.id}/edit`);
+  };
+
+  const handleDelete = () => {
+    props.history.push(`/Notes/${props.match.params.id}/delete`);
+  };
+
   const displayItem = note ? (
-    <div>
-      <h3> {note.title} </h3>
-      {/* <p> {note.id} </p> */}
+    <div className='noteDisplay'>
+      <section className='noteTitle'>
+        <h2> {note.title} </h2>
+        <div className='titleIcon'>
+          <Icon
+            link
+            size='large'
+            color='teal'
+            name='copy'
+            onClick={handleCopy}
+          />
+          <Icon
+            link
+            size='large'
+            color='teal'
+            name='edit'
+            onClick={handleEdit}
+          />
+          <Icon
+            link
+            size='large'
+            color='red'
+            name='delete'
+            onClick={handleDelete}
+          />
+        </div>
+      </section>
       <p> {note.textBody} </p>
     </div>
   ) : (
@@ -29,10 +69,10 @@ const DisplayNote = props => {
 
   return (
     <div className='displayNote'>
-      <nav className='displayNoteNav'>
-        <NavLink to={`/Notes/${props.match.params.id}/edit`}> Edit </NavLink>
-        <NavLink to={`/Notes/${props.match.params.id}/delete`}>Delete</NavLink>
-      </nav>
+      {/* <nav className='displayNoteNav'> */}
+      {/* <NavLink to={`/Notes/${props.match.params.id}/edit`}> Edit </NavLink>
+        <NavLink to={`/Notes/${props.match.params.id}/delete`}>Delete</NavLink> */}
+      {/* </nav> */}
 
       {displayItem}
     </div>

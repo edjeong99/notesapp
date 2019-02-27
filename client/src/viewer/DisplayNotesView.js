@@ -111,7 +111,13 @@ class DisplayNotesView extends Component {
 
         <Route
           path='/Notes/:id'
-          render={props => <DisplayNote {...props} notes={this.props.notes} />}
+          render={props => (
+            <DisplayNote
+              {...props}
+              notes={this.props.notes}
+              submitAdd={this.submitAdd}
+            />
+          )}
         />
 
         <Route
