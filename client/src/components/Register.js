@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import gv from '../util/globalVariable';
+import { Form, Button } from 'semantic-ui-react';
 
 const serverURL = gv.SERVER_PATH || 'http://localhost:9000/';
 
@@ -13,23 +14,27 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: { ...initialUser },
+      username: '',
+      password: '',
       message: ''
     };
   }
 
-  inputHandler = event => {
-    const { name, value } = event.target;
-    this.setState({ user: { ...this.state.user, [name]: value } });
+  onChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   submitHandler = event => {
     event.preventDefault();
-    console.log('in Register.js  this.state.user = ', this.state.user);
+    let registeringUser = {
+      username: this.state.username,
+      password: this.state.password
+    };
+    console.log('in Register.js  registeringUser = ', registeringUser);
     console.log('in Register.js  path = ', `${serverURL}${gv.REGISTER_PATH}`);
 
     axios
-      .post(`${serverURL}${gv.REGISTER_PATH}`, this.state.user)
+      .post(`${serverURL}${gv.REGISTER_PATH}`, registeringUser)
       .then(res => {
         console.log('Register.js  res.userId = ', res.data.userId);
         if (res.status === 200) {
@@ -58,10 +63,58 @@ export default class Register extends Component {
   };
 
   render() {
+    const { username, password } = this.state;
+    const isInvalid = password === '' || username === '';
+
     return (
       <div className='login'>
-        <form onSubmit={this.submitHandler}>
-          <label htmlFor='username'>Username</label>
+        <h3> Register </h3>
+        <Form onSubmit={this.submitHandler}>
+          <Form.Field>
+            <input
+              name='username'
+              value={username}
+              onChange={this.onChange}
+              type='text'
+              placeholder='username'
+              style={{ marginBottom: '10px' }}
+            />
+          </Form.Field>
+
+          {/* <Form.Field>
+            <input
+              name='username'
+              value={username}
+              onChange={this.onChange}
+              type='username'
+              placeholder='username'
+            />
+          </Form.Field> */}
+          <Form.Field>
+            <input
+              name='password'
+              value={password}
+              onChange={this.onChange}
+              type='password'
+              placeholder='Password'
+            />
+          </Form.Field>
+
+          <Button
+            disabled={isInvalid}
+            type='submit'
+            style={
+              isInvalid
+                ? {
+                    background: 'grey',
+                    color: 'white'
+                  }
+                : { background: 'green', color: 'white' }
+            }
+          >
+            Sign In
+          </Button>
+          {/* <label htmlFor='username'>Username</label>
           <input
             type='text'
             id='username'
@@ -77,8 +130,8 @@ export default class Register extends Component {
             value={this.state.user.password}
             onChange={this.inputHandler}
           />
-          <button type='submit'>Submit</button>
-        </form>
+          <button type='submit'>Submit</button>*/}
+        </Form>
         {this.state.message ? <h4>{this.state.message}</h4> : undefined}
       </div>
     );

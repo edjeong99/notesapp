@@ -110,6 +110,7 @@ class DisplayNotesView extends Component {
         />
 
         <Route
+          exact
           path='/Notes/:id'
           render={props => (
             <DisplayNote

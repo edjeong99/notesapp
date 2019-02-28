@@ -417,6 +417,11 @@ button {
 
 .login .logInButtons button {
 }
+
+.ui.form * {
+  width: 230px;
+  font-size: 1.4rem;
+}
 /* 
 .login label {
   font-size: 1.8rem;
