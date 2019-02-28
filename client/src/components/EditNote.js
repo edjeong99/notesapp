@@ -18,7 +18,7 @@ class EditNote extends Component {
     if (this.props.match.params.id) {
       // get the note with corresponding id from URL
       this.note = this.props.notes.filter(
-        item => item.id === this.props.match.params.id
+        item => Number(item.id) === Number(this.props.match.params.id)
       );
       this.setState({ ...this.note[0] }); // set state variables to this.note.  ie title=this.note.title
     } else {
@@ -39,7 +39,7 @@ class EditNote extends Component {
   render() {
     return (
       <div className='editNote'>
-        <h3>Edit Notes : </h3>
+        <h2>Edit Notes : </h2>
         <form onSubmit={this.submitEdit}>
           <input
             onChange={this.handleInputChange}
