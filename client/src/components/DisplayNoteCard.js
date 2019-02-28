@@ -38,7 +38,7 @@ const DisplayNoteCard = props => {
         <Card
           style={{
             // width: '200px',
-            height: '140px',
+            height: '170px',
             margin: '10px',
             overflow: 'hidden',
             fontFamily: 'Roboto',

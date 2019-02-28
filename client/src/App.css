@@ -221,9 +221,11 @@ body {
   text-align: center;
   display: flex;
 
-  height: 90vh;
-
+  height: 100vh;
   width: 100vw;
+  /* no vertical scroll for app (to make side menu sticky) */
+  overflow-y: hidden;
+  flex-flow: row nowrap;
 }
 
 .sideMenu {
@@ -233,16 +235,25 @@ body {
   text-align: center;
   padding: 30px 10px;
   font-size: 1.6rem;
+  flex: 0 0 auto;
 }
 .displayNotesView {
   margin: 30px 20px;
   text-align: left;
   width: 80%;
+  /* make vertical scroll for main part  */
+  overflow-y: auto;
+  flex: 1 1 auto;
 }
 
 .displayNotesView nav {
-  text-align: right;
-  margin-right: 30px;
+  /* margin-right: 20px; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  background: white;
 }
 
 .displayNotesView nav * {
@@ -258,8 +269,12 @@ body {
 
 .NoteListTop {
   display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+  margin: 30px 20px;
+  justify-content: space-between;
+}
+
+/* make display notes' Title center  */
+.NoteListTop h3 {
 }
 
 .displayNoteCard {
@@ -338,7 +353,9 @@ button {
 }
 
 .editNote button {
-  width: 200px;
+  width: 150px;
+  font-size: 1.4em !important;
+  margin: 0;
 }
 
 .deleteNote {

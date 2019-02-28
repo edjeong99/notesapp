@@ -17,7 +17,7 @@ const SideMenu = props => {
       </h2>
       <Link to='/'>
         <button onClick={() => props.setSearchBoolean(false)}>
-          View Notes
+          Home / View Notes
         </button>
       </Link>
       <Link to='/addNote'>

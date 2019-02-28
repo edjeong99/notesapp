@@ -21,19 +21,19 @@ class DisplayNoteList extends Component {
   }
 
   componentDidMount() {
-    // if (authenticate()) {
-    //   this.setState({
-    //     displayedNotes: this.props.notes
-    //   });
-    // } else this.props.history.push('/login');
-
-    // for now just set user as user ID 2
-    this.props.handleLogin(2);
-    this.props.fetchNotes(2);
-    this.setState({
-      displayedNotes: this.props.notes
-    });
+    if (authenticate()) {
+      this.setState({
+        displayedNotes: this.props.notes
+      });
+    } else this.props.history.push('/login');
   }
+  // for now just set user as user ID 2
+  //   this.props.handleLogin(2);
+  //   this.props.fetchNotes(2);
+  //   this.setState({
+  //     displayedNotes: this.props.notes
+  //   });
+  // }
   // to see if "View Your Notes" is clicked.  I use the props.isSearched boolean.
   // Toggle isSearched in redux state to decide whether all notes should be displayed, or
   // notes with search result should be displayed
@@ -95,7 +95,7 @@ class DisplayNoteList extends Component {
     return (
       <div className='NoteListContainer'>
         <div className='NoteListTop'>
-          <h3> Notes </h3>
+          <h3> Your Notes </h3>
           <SearchNote
             notes={this.state.notes}
             query={this.state.query}

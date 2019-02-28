@@ -55,7 +55,7 @@ class EditNote extends Component {
             name='textBody'
           />
 
-          <button type='submit'>Update</button>
+          <button type='submit'>Save</button>
         </form>
       </div>
     );
