@@ -116,6 +116,7 @@ class DisplayNotesView extends Component {
               {...props}
               notes={this.props.notes}
               submitAdd={this.submitAdd}
+              submitDelete={this.submitDelete}
             />
           )}
         />

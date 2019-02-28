@@ -30,7 +30,8 @@ const DisplayNote = props => {
   };
 
   const handleDelete = () => {
-    props.history.push(`/Notes/${props.match.params.id}/delete`);
+    props.submitDelete(note.id);
+    props.history.push('/');
   };
 
   const displayItem = note ? (
