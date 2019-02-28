@@ -29,7 +29,7 @@ class Login extends Component {
 
   // this componentDidMount is to make testing easier
   // should be deleted for production
-  /*
+
   componentDidMount() {
     axios
       .post(`${serverURL}${gv.LOGIN_PATH}`, {
@@ -56,7 +56,7 @@ class Login extends Component {
         });
       });
   }
-  */
+
   inputHandler = event => {
     const { name, value } = event.target;
     this.setState({ user: { ...this.state.user, [name]: value } });

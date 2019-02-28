@@ -44,7 +44,7 @@ const DisplayNoteCard = props => {
             fontFamily: 'Roboto',
             color: 'black',
             width: '150px',
-            backgroundColor: '#e6e9ed',
+            backgroundColor: '#F5F5F5',
             border: 'none'
           }}
         >
