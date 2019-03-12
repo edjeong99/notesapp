@@ -11,7 +11,8 @@ import {
   EditNote,
   Register,
   Login,
-  Logout
+  Logout,
+  Landing
 } from '../components/';
 import {
   setUserId,
@@ -78,9 +79,11 @@ class DisplayNotesView extends Component {
         />
         <Route path='/logout' component={Logout} />
 
+        <Route exact path='/' render={props => <Landing />} />
+
         <Route
           exact
-          path='/'
+          path='/Notes'
           render={props => (
             <DisplayNoteList
               {...props}

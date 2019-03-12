@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import DownloadCSV from './DownloadCSV';
 import { downloadNotesToCSV } from '../util';
 import { setSearchBoolean } from '../actions';
+import barcelonaImage from '../image/barcelona.jpg';
 
 // SideMenu component handles left side menu
 const SideMenu = props => {
@@ -30,6 +31,8 @@ const SideMenu = props => {
           downloadNotesToCSV(props.notes);
         }}
       />
+
+      <img src={barcelonaImage} alt='Barcelona' width='150' />
     </div>
   );
 };

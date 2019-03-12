@@ -237,6 +237,11 @@ body {
   font-size: 1.6rem;
   flex: 0 0 auto;
 }
+
+.sideMenu img {
+  margin-top: 20px;
+}
+
 .displayNotesView {
   margin: 30px 20px;
   text-align: left;
