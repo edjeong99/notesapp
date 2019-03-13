@@ -44,7 +44,7 @@ class Login extends Component {
 
           this.props.handleLogin(res.data.userId);
 
-          this.props.history.push('/');
+          this.props.history.push('/Notes');
         } else {
           throw new Error();
         }
@@ -76,7 +76,7 @@ class Login extends Component {
 
           this.props.handleLogin(res.data.userId);
 
-          this.props.history.push('/');
+          this.props.history.push('/Notes');
         } else {
           throw new Error();
         }

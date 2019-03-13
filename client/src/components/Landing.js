@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Route, withRouter, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 import ourColors from '../ColorScheme.js';
@@ -213,7 +214,7 @@ const Landing = args => (
     {...args}
     render={props =>
       // Redirect to the Recipe List page if the user is logged in; otherwise display the nested Landing component defined above.
-      localStorage.uid ? (
+      props.userId ? (
         <Redirect
           to={{
             pathname: '/Notes',
@@ -226,5 +227,13 @@ const Landing = args => (
     }
   />
 );
+const mapStateToProps = ({ userId }) => {
+  return { userId };
+};
 
-export default Landing;
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {}
+  )(Landing)
+);
