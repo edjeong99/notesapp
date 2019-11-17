@@ -79,3 +79,5 @@ Delete a note of the id
 ##### GET https://https://ed-notes.herokuapp.com/api/search
 
 Returns those notes that matches query
+
+End
