@@ -98,7 +98,7 @@ const LandingPage = props => {
         <Header as='h1' style={headerStyles1()}>
           SMART
           <br />
-          RECIPEZ
+          NOTES
         </Header>
         <p style={{ fontFamily: 'Roboto' }}>
           Do you have trouble remembering? This note app is for you! Here you can
