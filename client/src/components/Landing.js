@@ -101,10 +101,8 @@ const LandingPage = props => {
           RECIPEZ
         </Header>
         <p style={{ fontFamily: 'Roboto' }}>
-          Do you have trouble finding recipes that meet your dietary needs and
-          avoid your allergens? Smart Recipez is the app for you! Here you can
-          collect recipes or upload your own, and easily see which don't meet
-          your nutritional standards.
+          Do you have trouble remembering? This note app is for you! Here you can
+          easily take note.  
         </p>
         <Button
           onClick={e => props.history.push('/recipes')}
