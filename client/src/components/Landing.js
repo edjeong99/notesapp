@@ -42,6 +42,7 @@ const LandingDiv = styled.div`
 `;
 
 const LandingPage = props => {
+  console.log('LandingPage userID = ', props.userId);
   const headerStyles1 = () => {
     return {
       fontFamily: `Montserrat`,
@@ -121,13 +122,11 @@ const LandingPage = props => {
         <Header as='h1' style={headerStyles2()}>
           SMART
           <br />
-          RECIPEZ
+          Notes
         </Header>
         <p style={{ fontFamily: 'Roboto' }}>
-          Do you have trouble finding recipes that meet your dietary needs and
-          avoid your allergens? Smart Recipez is the app for you! Here you can
-          collect recipes or upload your own, and easily see which don't meet
-          your nutritional standards.
+          Smart Notes is a note taking app. It's easy and simple. Best of all,
+          it's FREE!
         </p>
         <Button
           onClick={e => props.history.push('/recipes')}
@@ -231,9 +230,4 @@ const mapStateToProps = ({ userId }) => {
   return { userId };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    {}
-  )(Landing)
-);
+export default withRouter(connect(mapStateToProps, {})(Landing));
