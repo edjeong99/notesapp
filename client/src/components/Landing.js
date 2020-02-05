@@ -96,14 +96,14 @@ const LandingPage = props => {
   return (
     <LandingDiv style={{ height: '85vh' }}>
       <Responsive minWidth={1240}>
-        <Header as='h1' style={headerStyles1()}>
+        <Header as='h1' style={headerStyles4()}>
           SMART
           <br />
           NOTES
         </Header>
         <p style={{ fontFamily: 'Roboto' }}>
-          Do you have trouble remembering? This note app is for you! Here you can
-          easily take note.  
+          Do you have trouble remembering? This note app is for you! Here you
+          can easily take note.
         </p>
         <Button
           onClick={e => props.history.push('/recipes')}
@@ -120,11 +120,11 @@ const LandingPage = props => {
         <Header as='h1' style={headerStyles2()}>
           SMART
           <br />
-          Notes
+          NOTES
         </Header>
         <p style={{ fontFamily: 'Roboto' }}>
-          Smart Notes is a note taking app. It's easy and simple. Best of all,
-          it's FREE!
+          Do you have trouble remembering? This note app is for you! Here you
+          can easily take note.
         </p>
         <Button
           onClick={e => props.history.push('/recipes')}
@@ -141,13 +141,11 @@ const LandingPage = props => {
         <Header as='h1' style={headerStyles21()}>
           SMART
           <br />
-          RECIPEZ
+          NOTES
         </Header>
         <p style={{ fontFamily: 'Roboto' }}>
-          Do you have trouble finding recipes that meet your dietary needs and
-          avoid your allergens? Smart Recipez is the app for you! Here you can
-          collect recipes or upload your own, and easily see which don't meet
-          your nutritional standards.
+          Do you have trouble remembering? This note app is for you! Here you
+          can easily take note.
         </p>
         <Button
           onClick={e => props.history.push('/recipes')}
@@ -164,13 +162,11 @@ const LandingPage = props => {
         <Header as='h1' style={headerStyles3()}>
           SMART
           <br />
-          RECIPEZ
+          NOTES
         </Header>
         <p style={{ fontFamily: 'Roboto', background: '#EFF3F4' }}>
-          Do you have trouble finding recipes that meet your dietary needs and
-          avoid your allergens? Smart Recipez is the app for you! Here you can
-          collect recipes or upload your own, and easily see which don't meet
-          your nutritional standards.
+          Do you have trouble remembering? This note app is for you! Here you
+          can easily take note.
         </p>
         <Button
           onClick={e => props.history.push('/recipes')}
@@ -187,7 +183,7 @@ const LandingPage = props => {
         <Header as='h1' style={headerStyles4()}>
           SMART
           <br />
-          RECIPEZ
+          NOTES
         </Header>
         <Button
           onClick={e => props.history.push('/recipes')}
