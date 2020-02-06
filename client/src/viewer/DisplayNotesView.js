@@ -152,8 +152,12 @@ const mapStateToProps = ({ fetching, notes, isSearched, userId }) => {
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    { setUserId, fetchNotes, addNote, deleteNote, editNote, setSearchBoolean }
-  )(DisplayNotesView)
+  connect(mapStateToProps, {
+    setUserId,
+    fetchNotes,
+    addNote,
+    deleteNote,
+    editNote,
+    setSearchBoolean
+  })(DisplayNotesView)
 );

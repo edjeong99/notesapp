@@ -215,7 +215,8 @@ const Landing = args => (
     {...args}
     render={props =>
       // Redirect to the Recipe List page if the user is logged in; otherwise display the nested Landing component defined above.
-      props.userId ? (
+
+      localStorage.secret_token ? ( //props.userId  was used before but value was always null
         <Redirect
           to={{
             pathname: '/Notes',
