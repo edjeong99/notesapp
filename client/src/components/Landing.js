@@ -16,6 +16,7 @@ const LandingDiv = styled.div`
     max-width: 500px;
     text-align: left;
     line-height: 1.5;
+    font-size: 2rem;
   }
 
   @media (max-width: 1440px) {
@@ -49,7 +50,8 @@ const LandingPage = props => {
       textAlign: 'center',
       fontSize: '7rem',
       fontWeight: 'normal',
-      margin: '75px 0 30px 25%'
+      margin: '75px 0 30px 25%',
+      background: 'rgba(255,255,255,0.7)'
     };
   };
   const headerStyles2 = () => {
@@ -58,7 +60,8 @@ const LandingPage = props => {
       textAlign: 'center',
       fontSize: '6rem',
       fontWeight: 'normal',
-      margin: '75px 30px 30px 22%'
+      margin: '75px 30px 30px 22%',
+      background: 'rgba(255,255,255,0.7)'
     };
   };
   const headerStyles21 = () => {
@@ -67,7 +70,8 @@ const LandingPage = props => {
       textAlign: 'center',
       fontSize: '5rem',
       fontWeight: 'normal',
-      margin: '50px 30px 30px 22%'
+      margin: '50px 30px 30px 22%',
+      background: 'rgba(255,255,255,0.7)'
     };
   };
   const headerStyles3 = () => {
@@ -96,21 +100,22 @@ const LandingPage = props => {
   return (
     <LandingDiv style={{ height: '85vh' }}>
       <Responsive minWidth={1240}>
-        <Header as='h1' style={headerStyles4()}>
+        <Header as='h1' style={headerStyles1()}>
           SMART
           <br />
           NOTES
         </Header>
-        <p style={{ fontFamily: 'Roboto' }}>
+        <p style={{ fontFamily: 'Roboto', background: '#EFF3F4' }}>
           Do you have trouble remembering? This note app is for you! Here you
           can easily take note.
         </p>
         <Button
-          onClick={e => props.history.push('/recipes')}
+          onClick={e => props.history.push('/')}
           style={{
             background: ourColors.buttonColor,
             color: 'white',
-            marginLeft: '25%'
+            marginLeft: '25%',
+            fontSize: '1.5rem'
           }}
         >
           Enter Site
@@ -122,16 +127,17 @@ const LandingPage = props => {
           <br />
           NOTES
         </Header>
-        <p style={{ fontFamily: 'Roboto' }}>
+        <p style={{ fontFamily: 'Roboto', background: '#EFF3F4' }}>
           Do you have trouble remembering? This note app is for you! Here you
           can easily take note.
         </p>
         <Button
-          onClick={e => props.history.push('/recipes')}
+          onClick={e => props.history.push('/')}
           style={{
             background: ourColors.buttonColor,
             color: 'white',
-            marginLeft: '22%'
+            marginLeft: '22%',
+            fontSize: '1.5rem'
           }}
         >
           Enter Site
@@ -143,16 +149,17 @@ const LandingPage = props => {
           <br />
           NOTES
         </Header>
-        <p style={{ fontFamily: 'Roboto' }}>
+        <p style={{ fontFamily: 'Roboto', background: '#EFF3F4' }}>
           Do you have trouble remembering? This note app is for you! Here you
           can easily take note.
         </p>
         <Button
-          onClick={e => props.history.push('/recipes')}
+          onClick={e => props.history.push('/')}
           style={{
             background: ourColors.buttonColor,
             color: 'white',
-            marginLeft: '22%'
+            marginLeft: '22%',
+            fontSize: '1.5rem'
           }}
         >
           Enter Site
@@ -169,11 +176,12 @@ const LandingPage = props => {
           can easily take note.
         </p>
         <Button
-          onClick={e => props.history.push('/recipes')}
+          onClick={e => props.history.push('/')}
           style={{
             background: ourColors.buttonColor,
             color: 'white',
-            marginLeft: '35%'
+            marginLeft: '35%',
+            fontSize: '1.5rem'
           }}
         >
           Enter Site
@@ -186,7 +194,7 @@ const LandingPage = props => {
           NOTES
         </Header>
         <Button
-          onClick={e => props.history.push('/recipes')}
+          onClick={e => props.history.push('/Notes')}
           style={{
             background: ourColors.buttonColor,
             color: 'white',

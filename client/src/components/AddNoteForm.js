@@ -11,7 +11,7 @@ class AddNoteForm extends Component {
 
   handleSubmitAdd = () => {
     this.props.submitAdd(this.state);
-    this.props.history.push('/');
+    this.props.history.push('/Notes');
   };
 
   handleInputChange = e => {
