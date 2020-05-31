@@ -1,8 +1,14 @@
-This is a note taking app.
-It is a personal project to improve my front-end and back-end development skills.
+This is a note taking app server.
+It is a personal project to improve my back-end development skills.  There is a corresponding front-end app.
+
 Front-end and Back-end each took 4 days to develop as part of Lambda School's curriculum. I then deployed both Front-end and Back-end.
-Due to time constrains only basic functionalities are implemented for now.
-Currently, I am improving CSS and plan to add more functionalities.
+
+Based on the school project, I am making several changes to improve.  Some of the main changes are
+- using MongoDB
+- deploying at AWS
+
+
+
 
 ### to test site
 
@@ -11,7 +17,7 @@ You can visit https://ed-notes.netlify.com to see the site. You can create an ac
 ### Deployment
 
 Front End : https://ed-notes.netlify.com
-Back End : https://ed-notes.herokuapp.com/
+Back End : 
 
 ### Installation
 
@@ -19,18 +25,6 @@ To install the application in a local dev environment, run `yarn install` in the
 
 ### Tech Stack Rationale
 
-#### Front End
-
-**Solution:** React, React Router, Redux
-In the process of adding Styled Components and Semantic UI
-Plan to add Firebase Oauth, Stripe, etc
-
-- Organizes state and manages front-end part of the project, reduces need for page reloads during navigation
-- Routing links
-- DOM Manipulation
-- Reusable components
-- Performance
-- Documentation and ease-of-use/implementation
 
 #### Back End
 
@@ -43,12 +37,7 @@ Plan to add Firebase Oauth, Stripe, etc
 
 #### Database
 
-**Solution:** SQLite for dev and PostgreSQL for prod, Knex
-
-- Structured schemas to define data
-- Relationships between data
-- Spread data across tables
-- Able to query tables
+**Solution:** MongoDb
 
 ### Back-end API
 
