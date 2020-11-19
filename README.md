@@ -34,12 +34,13 @@ Plan to add Firebase Oauth, Stripe, etc
 
 #### Back End
 
-**Solution:** Node, Express
+**Solution:** Node, Express, 
 
 - JavaScript on the front and back end
 - Reduces server-side logic complexity -> faster development
 - Minimalist and un-opinionated framework
 - Performance and cross-platform coverage
+- Used bcryptjs and jsonwebtoken for auth/security
 
 #### Database
 
